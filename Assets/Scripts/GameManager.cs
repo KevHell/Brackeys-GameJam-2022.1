@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private CustomSceneManager _customSceneManager;
+    [SerializeField] private MainMenuUIController _mainMenuUIController;
+    [SerializeField] private MainGameUIController _mainGameUIController;
     
     // Public Class References
     public CustomSceneManager CustomSceneManager { get { return _customSceneManager; } }
@@ -31,17 +33,29 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        // Handle ESC-press in MainMenu and MainGame
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (CustomSceneManager.MainMenuIsActive())
             {
-                // show do you want to quit?
+                _mainMenuUIController.CloseActivePanel();
+                _mainMenuUIController.ShowQuitPanel();
             }
             else
             {
-                // Show in game menu
+                PauseGame();
+                _mainGameUIController.ShowPausePanel();
             }
         }
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0.0f;
+    }
+    public void ResumeGame()
+    {
+        Time.timeScale = 1.0f;
     }
 
     #region Scene Managing & Quit

@@ -1,34 +1,34 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenuUIController : MonoBehaviour
+public class MainGameUIController : MonoBehaviour
 {
-    [SerializeField] private GameObject _mainPanel;
+    [Header("Panel References")]
+    [SerializeField] private GameObject _hud;
+    [SerializeField] private GameObject _pausePanel;
     [SerializeField] private GameObject _optionsPanel;
-    [SerializeField] private GameObject _creditsPanel;
     [SerializeField] private GameObject _quitPanel;
     private GameObject _activePanel;
 
     private void Start()
     {
-        _activePanel = _mainPanel;
+        _activePanel = _hud;
     }
 
-    public void ShowMainPanel()
+    public void ShowHud()
     {
-        ActivatePanel(_mainPanel);
+        ActivatePanel(_hud);
+    }
+    
+    public void ShowPausePanel()
+    {
+        ActivatePanel(_pausePanel);
     }
     
     public void ShowOptionsPanel()
     {
         ActivatePanel(_optionsPanel);
-    }
-
-    public void ShowCreditsPanel()
-    {
-        ActivatePanel(_creditsPanel);
     }
 
     public void ShowQuitPanel()
