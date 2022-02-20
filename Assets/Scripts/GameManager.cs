@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool _dontDestroyOnLoad = true;
 
     [Header("References")]
+    public AudioController AudioController;
     [SerializeField] private CustomSceneManager _customSceneManager;
     [SerializeField] private MainMenuUIController _mainMenuUIController;
     [SerializeField] private MainGameUIController _mainGameUIController;
@@ -49,6 +50,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    #region Pause/Resume Management
+
     public void PauseGame()
     {
         Time.timeScale = 0.0f;
@@ -57,6 +60,8 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
     }
+
+    #endregion
 
     #region Scene Managing & Quit
     public void LoadMainMenu()

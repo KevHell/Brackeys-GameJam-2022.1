@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Bad Map
+    uniqueID: 2913248299
+    locked: 0
+  - name: Good Map
+    uniqueID: 1553821913
+    locked: 0
