@@ -17,6 +17,9 @@ public class MainGameUIController : MonoBehaviour
     [SerializeField] private Slider _musicVolumeSlider;
     [SerializeField] private Slider _effectVolumeSlider;
 
+    [Header("RDM References")]
+    [SerializeField] private Image _rdmEnergyFill;
+
     private void Start()
     {
         _activePanel = _hud;
@@ -68,5 +71,11 @@ public class MainGameUIController : MonoBehaviour
         
         GameManager.Instance.AudioController.GetEffectVolume(out effect);
         _masterVolumeSlider.value = effect;
+    }
+
+    public void UpdateRDMEnergy(float value, Color color)
+    {
+        _rdmEnergyFill.fillAmount = value;
+        _rdmEnergyFill.color = color;
     }
 }

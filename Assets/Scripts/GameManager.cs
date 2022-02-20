@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public bool GamePaused { get; private set; }
+    
     [Header("General Settings")]
     [SerializeField] private bool _dontDestroyOnLoad = true;
 
@@ -16,7 +18,9 @@ public class GameManager : MonoBehaviour
     public AudioController AudioController;
     [SerializeField] private CustomSceneManager _customSceneManager;
     [SerializeField] private MainMenuUIController _mainMenuUIController;
-    [SerializeField] private MainGameUIController _mainGameUIController;
+    public MainGameUIController MainGameUIController;
+    [SerializeField] private RealityDistortionModule _realityDistortionModule;
+    public WorldChangeManager WorldChangeManager;
     
     // Public Class References
     public CustomSceneManager CustomSceneManager { get { return _customSceneManager; } }
@@ -45,19 +49,31 @@ public class GameManager : MonoBehaviour
             else
             {
                 PauseGame();
-                _mainGameUIController.ShowPausePanel();
+                MainGameUIController.ShowPausePanel();
             }
         }
+        
+        // Handle World-Change-Input
+        if (Input.GetKeyDown(KeyCode.Space) && !GamePaused)
+        {
+            _realityDistortionModule.ToggleModule();
+        }
     }
+
+    #region World Change Handling
+    
+    #endregion
 
     #region Pause/Resume Management
 
     public void PauseGame()
     {
+        GamePaused = true;
         Time.timeScale = 0.0f;
     }
     public void ResumeGame()
     {
+        GamePaused = false;
         Time.timeScale = 1.0f;
     }
 
