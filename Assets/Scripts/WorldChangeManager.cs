@@ -8,6 +8,7 @@ public class WorldChangeManager : MonoBehaviour
     [Header("World References")]
     [SerializeField] private GameObject _realityContainer;
     [SerializeField] private GameObject _irrealityContainer;
+    [SerializeField] private List<GameObject> _irrealityObjects;
 
     public WorldType ActiveWorldType { get; private set; }
 
@@ -15,13 +16,23 @@ public class WorldChangeManager : MonoBehaviour
     
     public void ChangeToIrreality()
     {
-        _irrealityContainer.SetActive(true);
+        //_irrealityContainer.SetActive(true);
+        foreach (var irrealityObject in _irrealityObjects)
+        {
+            irrealityObject.gameObject.SetActive(true);
+        }
+        
         ActiveWorldType = WorldType.GoodWorld_Irreality;
     }
 
     public void ChangeToReality()
     {
-        _irrealityContainer.SetActive(false);
+        //_irrealityContainer.SetActive(false);
+        foreach (var irrealityObject in _irrealityObjects)
+        {
+            irrealityObject.gameObject.SetActive(false);
+        }
+        
         ActiveWorldType = WorldType.BadWorld_Reality;
     }
 
