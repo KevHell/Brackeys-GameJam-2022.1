@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     public PlayerMovement PlayerMovement;
     public InteractableController InteractableController;
+    public ItemBag ItemBag;
     
     private void Awake()
     {

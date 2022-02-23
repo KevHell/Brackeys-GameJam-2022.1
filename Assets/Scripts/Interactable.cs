@@ -8,6 +8,9 @@ public class Interactable : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Animator _tooltipAnimator;
+
+    [Header("Settings")]
+    public bool CanInteract = true;
     
     [Header("Interaction Reactions")]
     public UnityEvent OnInteraction = new UnityEvent();
@@ -27,24 +30,23 @@ public class Interactable : MonoBehaviour
     public void Interact()
     {
         OnInteraction.Invoke();
-        Debug.Log("Interact");
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (!GameManager.Instance.RealityDistortionModule.Active) return;
+        if (!GameManager.Instance.RealityDistortionModule.Active || !CanInteract) return;
         ActivateTooltip();
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (!GameManager.Instance.RealityDistortionModule.Active || _tooltipActive) return;
+        if (!GameManager.Instance.RealityDistortionModule.Active || _tooltipActive || !CanInteract) return;
         ActivateTooltip();
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!GameManager.Instance.RealityDistortionModule.Active) return;
+        if (!GameManager.Instance.RealityDistortionModule.Active || !CanInteract) return;
         
         PlayerController.Instance.InteractableController.ClearCurrentInteractable();
         _tooltipAnimator.SetBool("Active", false);
@@ -56,5 +58,12 @@ public class Interactable : MonoBehaviour
         PlayerController.Instance.InteractableController.SetCurrentInteractable(this);
         _tooltipAnimator.SetBool("Active", true);
         _tooltipActive = true;
+    }
+
+    public void Deactivate()
+    {
+        CanInteract = false;
+        _tooltipAnimator.SetBool("Active", false);
+        _tooltipActive = false;
     }
 }

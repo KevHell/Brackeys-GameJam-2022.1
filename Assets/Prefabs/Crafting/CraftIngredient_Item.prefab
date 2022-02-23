@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &655495149114425758
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1391780551, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: _destroySelf
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485814177789232065, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: OnInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Activate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547673153224284458, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547673153224284458, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547673153224284458, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547673153224284458, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547673153224284458, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547673153224284458, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547673153224284458, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547673153224284458, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547673153224284458, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547673153224284458, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547673153224284458, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547673153224284461, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: m_Name
+      value: CraftIngredient_Item
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}

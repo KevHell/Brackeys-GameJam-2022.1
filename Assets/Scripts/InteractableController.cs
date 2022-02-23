@@ -8,7 +8,7 @@ public class InteractableController : MonoBehaviour
 
     public void TryToInteract()
     {
-        if (!_currentInteractable) return;
+        if (!_currentInteractable || !_currentInteractable.CanInteract) return;
 
         _currentInteractable.Interact();
     }
