@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class RealityDistortionModule : MonoBehaviour
 {
-    private bool _active;
+    public bool Active { get; private set; }
     private bool _loading;
 
     [Header("Energy Settings")]
@@ -48,7 +48,7 @@ public class RealityDistortionModule : MonoBehaviour
         /////////////////////////////////////////
         
         
-        if (_active)
+        if (Active)
         {
             _energySecondsLeft -= Time.deltaTime;
             if (_energySecondsLeft <= 0)
@@ -98,19 +98,19 @@ public class RealityDistortionModule : MonoBehaviour
 
     public void ToggleModule()
     {
-        if (_active) Deactivate();
+        if (Active) Deactivate();
         else Activate();
     }
     private void Activate()
     {
         if (_loading) return;
         
-        _active = true;
+        Active = true;
         GameManager.Instance.WorldChangeManager.ChangeToIrreality();
     }
     private void Deactivate()
     {
-        _active = false;
+        Active = false;
         StopCoroutine(nameof(FlickerWorldsAfterRandomSeconds));
         StopCoroutine(nameof(FlickerWorldsQuicklyAfterRandomSeconds));
         GameManager.Instance.WorldChangeManager.ChangeToReality();

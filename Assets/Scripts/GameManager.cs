@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CustomSceneManager _customSceneManager;
     [SerializeField] private MainMenuUIController _mainMenuUIController;
     public MainGameUIController MainGameUIController;
-    [SerializeField] private RealityDistortionModule _realityDistortionModule;
+    public RealityDistortionModule RealityDistortionModule;
     public WorldChangeManager WorldChangeManager;
     
     // Public Class References
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         // Handle World-Change-Input
         if (Input.GetKeyDown(KeyCode.Space) && !GamePaused)
         {
-            _realityDistortionModule.ToggleModule();
+            RealityDistortionModule.ToggleModule();
         }
     }
 

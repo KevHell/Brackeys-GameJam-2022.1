@@ -27,6 +27,11 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L)) return; // Load
 
         #endregion
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            PlayerController.Instance.InteractableController.TryToInteract();
+        }
         
         if (Input.GetKeyDown(KeyCode.Escape))
         {

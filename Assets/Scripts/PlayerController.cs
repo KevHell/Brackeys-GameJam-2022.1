@@ -9,7 +9,9 @@ public class PlayerController : MonoBehaviour
     [Header("General Settings")]
     [SerializeField] private bool _dontDestroyOnLoad = true;
 
+    [Header("References")]
     public PlayerMovement PlayerMovement;
+    public InteractableController InteractableController;
     
     private void Awake()
     {
