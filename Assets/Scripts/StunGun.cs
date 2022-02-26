@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StunGun : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class StunGun : MonoBehaviour
     [SerializeField] private float _reloadTime = 1.5f;
 
     private bool _canShoot = true;
+
+    public UnityEvent OnShot = new UnityEvent();
 
     public void Shoot()
     {
@@ -28,6 +31,7 @@ public class StunGun : MonoBehaviour
         GameManager.Instance.MainGameUIController.UpdateBullets(_stacks);
         
         GameObject bulletObject = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
+        OnShot.Invoke();
     }
 
     private void Update()

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 public class PlantSpotController : MonoBehaviour
@@ -16,6 +17,8 @@ public class PlantSpotController : MonoBehaviour
     [FormerlySerializedAs("_fullGrown")] public bool FullGrown;
     private float _timer;
     private int _spriteCounter;
+
+    public UnityEvent OnPlanted = new UnityEvent();
 
     public void StartPlanting()
     {
@@ -74,6 +77,7 @@ public class PlantSpotController : MonoBehaviour
         _badRenderer.gameObject.SetActive(true);
 
         _planted = true;
+        OnPlanted.Invoke();
     }
 
     private void GetPlantingOptions()

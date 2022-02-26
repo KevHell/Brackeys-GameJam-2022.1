@@ -110,8 +110,11 @@ public class InputController : MonoBehaviour
             
             case InputMode.TextBox:
 
-                if (Input.GetKeyDown(KeyCode.E)) GameManager.Instance.MainGameUIController.CloseTextBox();
-                GameManager.Instance.MainGameUIController.OnBoxClosed.Invoke();
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    GameManager.Instance.MainGameUIController.CloseTextBox();
+                    GameManager.Instance.MainGameUIController.OnBoxClosed.Invoke();
+                }
                 break;
             
             case InputMode.Menu:

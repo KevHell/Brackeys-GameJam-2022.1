@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class RealityDistortionModule : MonoBehaviour
@@ -50,6 +51,10 @@ public class RealityDistortionModule : MonoBehaviour
     private float _loadingAmount;
     private float _loadingRatio;
 
+    public UnityEvent OnActivation = new UnityEvent();
+    public UnityEvent OnAlert = new UnityEvent();
+    
+
     private void Start()
     {
         _energySecondsLeft = _maxEnergyInSeconds;
@@ -86,6 +91,7 @@ public class RealityDistortionModule : MonoBehaviour
             {
                 _scaleUp = false;
                 _scaleTimer = 0;
+                OnActivation.Invoke();
             }
         }
 
@@ -205,6 +211,7 @@ public class RealityDistortionModule : MonoBehaviour
             {
                 _flickering1 = true;
                 StartCoroutine(nameof(FlickerWorldsAfterRandomSeconds));
+                OnAlert.Invoke();
             }
             else if (_flickering1)
             {

@@ -218,8 +218,8 @@ public class MainGameUIController : MonoBehaviour
 
     public void Plant()
     {
-        _currentPlantSpotController.PlantSeed(_plantingOptions[_plantingOptionIndex]);
         GameManager.Instance.InputController.SwitchInputMode(InputMode.MainGame);
+        _currentPlantSpotController.PlantSeed(_plantingOptions[_plantingOptionIndex]);
     }
 
     #endregion
@@ -370,6 +370,8 @@ public class MainGameUIController : MonoBehaviour
 
     public void CraftItems()
     {
+        GameManager.Instance.InputController.SwitchInputMode(InputMode.MainGame);
+        
         foreach (var itemType in _craftingCounts.Keys)
         {
             for (int i = 0; i < _craftingCounts[itemType]; i++)
@@ -378,7 +380,7 @@ public class MainGameUIController : MonoBehaviour
             }
         }
         
-        GameManager.Instance.InputController.SwitchInputMode(InputMode.MainGame);
+        
         GameManager.Instance.CraftingController.StopCrafting();
         ResetCrafting();
     }

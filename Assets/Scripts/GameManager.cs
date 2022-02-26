@@ -30,8 +30,10 @@ public class GameManager : MonoBehaviour
     
     
     private List<PlantSpotController> _plantSpotControllers;
-    
 
+
+    public bool Tutorial = true;
+    
     private void Awake()
     {
         // Initialize Singleton

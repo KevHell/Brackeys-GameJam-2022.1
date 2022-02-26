@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CraftingController : MonoBehaviour
 {
     [SerializeField] private List<CraftingItem> _craftingItems;
     private Dictionary<ItemType, int> _ingredientCounts = new Dictionary<ItemType, int>();
     private Dictionary<ItemType, int> _craftingOptions = new Dictionary<ItemType, int>();
+
+    public UnityEvent OnCrafted = new UnityEvent();
 
     private void Update()
     {
@@ -49,6 +52,7 @@ public class CraftingController : MonoBehaviour
         
         // add it to bag
         PlayerController.Instance.ItemBag.TryToStoreItem(craftedItem, out bool success);
+        OnCrafted.Invoke();
     }
 
     public void StartCrafting()
