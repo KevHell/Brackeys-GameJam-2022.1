@@ -9,10 +9,19 @@ public class RealityDistortionModule : MonoBehaviour
     public bool Active { get; private set; }
     private bool _loading;
 
+    [Header("References")]
+    [SerializeField] private Camera _irrealityCamera;
+    [SerializeField] private Transform _rdmTransform;
+    [SerializeField] private Transform _rdmParticleTransform;
+    
     [Header("Energy Settings")]
-    [SerializeField] private float _maxEnergyInSeconds;
+    public float _maxEnergyInSeconds;
     private float _energySecondsLeft;
     private float _currentEnergyRatio;
+    public float EnergySecondsLeft
+    {
+        get { return _energySecondsLeft; }
+    }
     // Energy Alert
     [SerializeField] [Range(0, 1)] private float _alertValue1;
     [SerializeField] [Range(0, 1)] private float _alertValue2;
@@ -22,9 +31,20 @@ public class RealityDistortionModule : MonoBehaviour
     private float _flickerTimer;
     private bool _flickering1;
     private bool _flickering2;
+
+    [Header("Scaling Settings")]
+    [SerializeField] private float _scaleUpTime;
+    [SerializeField] private AudioSource _badMusic;
+    [SerializeField] private AudioSource _goodMusic;
+    private float _desiredMusicVolume;
+    private float _scaleTimer;
+    private float _ratio;
+    private Vector3 _desiredRDMScale;
+    private Vector3 _desiredParticleScale;
+    private float _desiredCameraSize;
+    private bool _scaleUp;
+    private bool _scaleDown;
     
-
-
     [Header("Loading Settings")]
     [SerializeField] private float _loadingTime;
     private float _loadingAmount;
@@ -36,6 +56,16 @@ public class RealityDistortionModule : MonoBehaviour
         _currentEnergyRatio = _energySecondsLeft / _maxEnergyInSeconds;
         GameManager.Instance.MainGameUIController.
             UpdateRDMEnergy(_currentEnergyRatio, _alertGradient.Evaluate(_currentEnergyRatio));
+
+        _desiredRDMScale = _rdmTransform.localScale;
+        _desiredCameraSize = _irrealityCamera.orthographicSize;
+        _desiredParticleScale = _rdmParticleTransform.localScale;
+        _desiredMusicVolume = _badMusic.volume;
+        
+        _rdmTransform.localScale = Vector3.zero;
+        _irrealityCamera.orthographicSize = 0;
+        _rdmParticleTransform.localScale = Vector3.zero;
+        //_goodMusic.volume = 0;
     }
 
     private void Update()
@@ -46,7 +76,44 @@ public class RealityDistortionModule : MonoBehaviour
             StartLoadingOverTime();
         }
         /////////////////////////////////////////
-        
+
+        if (_scaleUp)
+        {
+            _scaleTimer += Time.deltaTime;
+            _ratio = _scaleTimer / _scaleUpTime;
+
+            _rdmTransform.localScale = Vector3.Lerp(Vector3.zero, _desiredRDMScale, _ratio);
+            _irrealityCamera.orthographicSize = Mathf.Lerp(0, _desiredCameraSize, _ratio);
+            _rdmParticleTransform.localScale = Vector3.Lerp(Vector3.zero, _desiredParticleScale, _ratio);
+            //_goodMusic.volume = Mathf.Lerp(0, _desiredMusicVolume, _ratio);
+            //_badMusic.volume = Mathf.Lerp(_desiredMusicVolume, 0, _ratio);
+
+            if (_ratio >= 1)
+            {
+                _scaleUp = false;
+                _scaleTimer = 0;
+            }
+        }
+
+        if (_scaleDown)
+        {
+            _scaleTimer += Time.deltaTime;
+            _ratio = _scaleTimer / _scaleUpTime;
+            
+            _rdmTransform.localScale = Vector3.Lerp(_desiredRDMScale, Vector3.zero, _ratio);
+            _irrealityCamera.orthographicSize = Mathf.Lerp(_desiredCameraSize, 0, _ratio);
+            _rdmParticleTransform.localScale = Vector3.Lerp(_desiredParticleScale, Vector3.zero, _ratio);
+            //_badMusic.volume = Mathf.Lerp(0, _desiredMusicVolume, _ratio);
+            //_goodMusic.volume = Mathf.Lerp(_desiredMusicVolume, 0, _ratio);
+
+            if (_ratio >= 1)
+            {
+                _scaleDown = false;
+                _scaleTimer = 0;
+                
+                Deactivate();
+            }
+        }
         
         if (Active)
         {
@@ -54,7 +121,10 @@ public class RealityDistortionModule : MonoBehaviour
             if (_energySecondsLeft <= 0)
             {
                 _energySecondsLeft = 0;
+                _scaleDown = false;
+                _scaleTimer = 0;
                 Deactivate();
+                Active = false;
             }
             
             _currentEnergyRatio = _energySecondsLeft / _maxEnergyInSeconds;
@@ -94,11 +164,16 @@ public class RealityDistortionModule : MonoBehaviour
         }
     }
 
+
     #region Activation Management
 
     public void ToggleModule()
     {
-        if (Active) Deactivate();
+        if (Active)
+        {
+            _scaleDown = true;
+            Active = false;
+        }
         else Activate();
     }
     private void Activate()
@@ -107,13 +182,23 @@ public class RealityDistortionModule : MonoBehaviour
         
         Active = true;
         GameManager.Instance.WorldChangeManager.ChangeToIrreality();
+        GameManager.Instance.AudioController.ActivateGoodMusic();
+
+        _scaleUp = true;
+        //_scaleTimer = 0;
+        _scaleDown = false;
     }
     private void Deactivate()
     {
-        Active = false;
+        //Active = false;
         StopCoroutine(nameof(FlickerWorldsAfterRandomSeconds));
         StopCoroutine(nameof(FlickerWorldsQuicklyAfterRandomSeconds));
         GameManager.Instance.WorldChangeManager.ChangeToReality();
+        GameManager.Instance.AudioController.ActivateBadMusic();
+
+        _scaleUp = false;
+        //_scaleTimer = 0;
+        _scaleDown = true;
     }
 
     #endregion
@@ -203,6 +288,11 @@ public class RealityDistortionModule : MonoBehaviour
         _flickering1 = false;
         _flickering2 = false;
         _flickerTimer = 0;
+        
+        _currentEnergyRatio = _energySecondsLeft / _maxEnergyInSeconds;
+        
+        GameManager.Instance.MainGameUIController.
+            UpdateRDMEnergy(_currentEnergyRatio, _alertGradient.Evaluate(_currentEnergyRatio));
     }
 
     #endregion

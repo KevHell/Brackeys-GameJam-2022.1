@@ -8,8 +8,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1391780551, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9012bc64fc4299f40a4dcb3240de30a4, type: 3}
+    - target: {fileID: 1391780551, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
       propertyPath: _destroySelf
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485814177789232065, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: InteractDuration
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4485814177789232065, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
       propertyPath: OnInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -62,6 +70,10 @@ PrefabInstance:
     - target: {fileID: 5547673153224284461, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
       propertyPath: m_Name
       value: CraftIngredient_Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075333870347821369, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: m_Radius
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}

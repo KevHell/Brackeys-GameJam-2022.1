@@ -23,6 +23,7 @@ public class WorldChangeManager : MonoBehaviour
         }
         
         ActiveWorldType = WorldType.GoodWorld_Irreality;
+        GameManager.Instance.AudioController.ActivateGoodMusic();
     }
 
     public void ChangeToReality()
@@ -34,6 +35,7 @@ public class WorldChangeManager : MonoBehaviour
         }
         
         ActiveWorldType = WorldType.BadWorld_Reality;
+        GameManager.Instance.AudioController.ActivateBadMusic();
     }
 
     #region Event Management

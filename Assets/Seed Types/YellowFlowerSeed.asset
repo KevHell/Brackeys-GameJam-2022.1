@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f765a1c16246b34b8fbec766e8642df, type: 3}
-  m_Name: FlowerTestSeed
+  m_Name: YellowFlowerSeed
   m_EditorClassIdentifier: 
-  ItemType: 1
+  ItemType: 5
   GrowSprites:
   - {fileID: 21300000, guid: 613984e107c3dfb4ca4e711270d9959f, type: 3}
   - {fileID: 21300000, guid: 6d6a6f8e03abcfa4b8cbd35be87552e4, type: 3}
   - {fileID: 21300000, guid: 69074ce9cbe42a14bb170ec1e806a538, type: 3}
+  - {fileID: 21300000, guid: c0ece28b98fba094ebe1543f18eaa037, type: 3}
   GrowthRateInSeconds: 3

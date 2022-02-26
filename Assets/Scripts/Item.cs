@@ -21,6 +21,10 @@ public class Item : MonoBehaviour
 
 public enum ItemType
 {
-    TestFlower,
-    TestFlowerSeed
+    RedFlower,
+    RedFlowerSeed,
+    BlueFlower,
+    BlueFlowerSeed,
+    YellowFlower,
+    YellowFlowerSeed
 }

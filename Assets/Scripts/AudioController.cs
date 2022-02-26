@@ -3,18 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Serialization;
 
 public class AudioController : MonoBehaviour
 {
+    [FormerlySerializedAs("_backgroundMusicSource")]
     [Header("Source References")]
-    [SerializeField] private AudioSource _backgroundMusicSource;
+    [SerializeField] private AudioSource _badBackgroundMusicSource;
+    [SerializeField] private AudioSource _goodBackgroundMusicSource;
     [SerializeField] private List<AudioSource> _effectSources;
 
     [SerializeField] private AudioMixer _masterMixer;
+    private bool _musicMuted;
 
     private void Start()
     {
-        _masterMixer = _backgroundMusicSource.outputAudioMixerGroup.audioMixer;
+        _masterMixer = _badBackgroundMusicSource.outputAudioMixerGroup.audioMixer;
     }
     
     public void PlaySoundEffect(AudioClip clip, bool force = false)
@@ -41,10 +45,40 @@ public class AudioController : MonoBehaviour
 
     #region Toggle Mute
 
-    
+    public void ActivateGoodMusic()
+    {
+        _badBackgroundMusicSource.mute = true;
+        _goodBackgroundMusicSource.mute = false;
+    }
+
+    public void ActivateBadMusic()
+    {
+        _badBackgroundMusicSource.mute = false;
+        _goodBackgroundMusicSource.mute = true;
+    }
+
     public void ToggleBackgroundMusic()
     {
-        _backgroundMusicSource.mute = !_backgroundMusicSource.mute;
+        _musicMuted = !_musicMuted;
+
+        if (_musicMuted)
+        {
+            _badBackgroundMusicSource.mute = true;
+            _goodBackgroundMusicSource.mute = true;
+        }
+        else
+        {
+            if (GameManager.Instance.RealityDistortionModule.Active)
+            {
+                _badBackgroundMusicSource.mute = true;
+                _goodBackgroundMusicSource.mute = false;
+            }
+            else
+            {
+                _badBackgroundMusicSource.mute = false;
+                _goodBackgroundMusicSource.mute = true;
+            }
+        }
     }
     public void ToggleSoundEffects()
     {

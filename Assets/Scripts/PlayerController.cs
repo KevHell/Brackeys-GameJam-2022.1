@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public PlayerMovement PlayerMovement;
     public InteractableController InteractableController;
     public ItemBag ItemBag;
+    public HealthController HealthController;
+    public StunGun StunGun;
     
     private void Awake()
     {

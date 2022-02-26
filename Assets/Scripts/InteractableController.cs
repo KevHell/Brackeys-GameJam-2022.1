@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class InteractableController : MonoBehaviour
 {
-    private Interactable _currentInteractable;
+    public Interactable CurrentInteractable;
 
     public void TryToInteract()
     {
-        if (!_currentInteractable || !_currentInteractable.CanInteract) return;
+        if (!CurrentInteractable || !CurrentInteractable.CanInteract) return;
 
-        _currentInteractable.Interact();
+        CurrentInteractable.Interact();
+        CurrentInteractable = null;
     }
 
     public void SetCurrentInteractable(Interactable interactable)
     {
-        _currentInteractable = interactable;
+        CurrentInteractable = interactable;
     }
 
     public void ClearCurrentInteractable()
     {
-        _currentInteractable = null;
+        CurrentInteractable = null;
     }
 }

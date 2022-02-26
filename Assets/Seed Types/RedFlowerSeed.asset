@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f765a1c16246b34b8fbec766e8642df, type: 3}
+  m_Name: RedFlowerSeed
+  m_EditorClassIdentifier: 
+  ItemType: 1
+  GrowSprites:
+  - {fileID: 21300000, guid: 613984e107c3dfb4ca4e711270d9959f, type: 3}
+  - {fileID: 21300000, guid: 6d6a6f8e03abcfa4b8cbd35be87552e4, type: 3}
+  - {fileID: 21300000, guid: 69074ce9cbe42a14bb170ec1e806a538, type: 3}
+  - {fileID: 21300000, guid: 25d44f8188a9de841a54f917eda3f8dc, type: 3}
+  GrowthRateInSeconds: 3

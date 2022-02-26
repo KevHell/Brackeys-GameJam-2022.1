@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public MainGameUIController MainGameUIController;
     public RealityDistortionModule RealityDistortionModule;
     public WorldChangeManager WorldChangeManager;
+    public CraftingController CraftingController;
+    public InputController InputController;
     
     // Public Class References
     public CustomSceneManager CustomSceneManager { get { return _customSceneManager; } }
@@ -53,11 +55,6 @@ public class GameManager : MonoBehaviour
             }
         }
         
-        // Handle World-Change-Input
-        if (Input.GetKeyDown(KeyCode.Space) && !GamePaused)
-        {
-            RealityDistortionModule.ToggleModule();
-        }
     }
 
     #region World Change Handling

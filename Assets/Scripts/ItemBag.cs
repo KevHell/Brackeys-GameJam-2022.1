@@ -7,6 +7,7 @@ public class ItemBag : MonoBehaviour
 {
     public List<Item> Items = new List<Item>();
     [SerializeField] private int _itemSlots = 5;
+    public bool SpaceInBag = true;
 
     private Dictionary<ItemType, int> _itemsCounts = new Dictionary<ItemType, int>();
 
@@ -14,7 +15,7 @@ public class ItemBag : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            RemoveItemOfType(ItemType.TestFlower);
+            RemoveItemOfType(ItemType.RedFlower);
         }
     }
 
@@ -29,6 +30,12 @@ public class ItemBag : MonoBehaviour
             
             GameManager.Instance.MainGameUIController.UpdateItemsInBag(Items);
             success = true;
+
+            if (Items.Count == _itemSlots)
+            {
+                SpaceInBag = false;
+            }
+            
             Debug.Log("Success");
         }
         else
@@ -49,6 +56,8 @@ public class ItemBag : MonoBehaviour
             _itemsCounts[itemType] -= 1;
             break;
         }
+        
+        SpaceInBag = true;
         
         GameManager.Instance.MainGameUIController.UpdateItemsInBag(Items);
     }
