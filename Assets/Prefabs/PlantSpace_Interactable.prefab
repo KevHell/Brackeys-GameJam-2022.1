@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199969038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.04, z: -0.01}
+  m_LocalPosition: {x: 0, y: -0.035, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7394519583494287524}
@@ -125,7 +125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087977759}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.04, z: 19.99}
+  m_LocalPosition: {x: 0, y: -0.03499981, z: 19.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7394519583494287524}
@@ -211,7 +211,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.03}
+  m_Offset: {x: -0.002456069, y: -0.7815454}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -222,7 +222,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 0.56}
+  m_Size: {x: 1.0038819, y: 2.0630908}
   m_EdgeRadius: 0
 --- !u!114 &1997489863514539616
 MonoBehaviour:
@@ -253,7 +253,7 @@ PrefabInstance:
     - target: {fileID: 3808903528373792740, guid: 1afd034b6c658124f8f09fb053cf9a54, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f246d9b5d86edd44eaad574d7757653c, type: 3}
+      objectReference: {fileID: 21300000, guid: c7544adbb2dd14a4e86dab0be1649383, type: 3}
     - target: {fileID: 3808903528373792740, guid: 1afd034b6c658124f8f09fb053cf9a54, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -345,10 +345,14 @@ PrefabInstance:
     - target: {fileID: 3808903529179927189, guid: 1afd034b6c658124f8f09fb053cf9a54, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4967dbcb84098664386b705d3571a24f, type: 3}
+      objectReference: {fileID: 21300000, guid: c7544adbb2dd14a4e86dab0be1649383, type: 3}
     - target: {fileID: 3808903529179927189, guid: 1afd034b6c658124f8f09fb053cf9a54, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976290772467037465, guid: 1afd034b6c658124f8f09fb053cf9a54, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 5072859649660926550, guid: 1afd034b6c658124f8f09fb053cf9a54, type: 3}
       propertyPath: InteractDuration
