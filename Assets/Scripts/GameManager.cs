@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
     [Header("References")]
     public AudioController AudioController;
     [SerializeField] private CustomSceneManager _customSceneManager;
-    [SerializeField] private MainMenuUIController _mainMenuUIController;
+    [FormerlySerializedAs("_mainMenuUIController")] [SerializeField] public MainMenuUIController MainMenuUIController;
     public MainGameUIController MainGameUIController;
     public RealityDistortionModule RealityDistortionModule;
     public WorldChangeManager WorldChangeManager;
@@ -41,19 +42,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // Handle ESC-press in MainMenu and MainGame
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (CustomSceneManager.MainMenuIsActive())
-            {
-                _mainMenuUIController.CloseActivePanel();
-                _mainMenuUIController.ShowQuitPanel();
-            }
-            else
-            {
-                PauseGame();
-                MainGameUIController.ShowPausePanel();
-            }
-        }
+        
         
     }
 

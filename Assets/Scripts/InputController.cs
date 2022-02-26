@@ -26,8 +26,8 @@ public class InputController : MonoBehaviour
 
                 #region Drone
 
-                if (Input.GetMouseButtonUp(0)) PlayerController.Instance.StunGun.Shoot(); // Shoot
-                if (Input.GetMouseButtonUp(1) && !GameManager.Instance.GamePaused)
+                if (Input.GetMouseButtonDown(0)) PlayerController.Instance.StunGun.Shoot(); // Shoot
+                if (Input.GetMouseButtonDown(1) && !GameManager.Instance.GamePaused)
                     GameManager.Instance.RealityDistortionModule.ToggleModule(); // Toggle RDM
 
                 #endregion
@@ -76,6 +76,7 @@ public class InputController : MonoBehaviour
                 else if (Input.GetKeyUp(KeyCode.E))
                 {
                     _waitingForInteraction = false;
+                    _interactionTimer = 0;
 
                     if (_interactable)
                     {
@@ -111,29 +112,51 @@ public class InputController : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E)) GameManager.Instance.MainGameUIController.CloseTextBox();
                 
                 break;
+            
+            case InputMode.Menu:
+                _waitingForInteraction = false;
+                _interactionTimer = 0;
+                break;
         }
 
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            /*
-            if (CustomSceneManager.MainMenuIsActive())
+            
+            if (GameManager.Instance.CustomSceneManager.MainMenuIsActive())
             {
-                _mainMenuUIController.CloseActivePanel();
-                _mainMenuUIController.ShowQuitPanel();
+                GameManager.Instance.MainMenuUIController.CloseActivePanel();
+                GameManager.Instance.MainMenuUIController.ShowQuitPanel();
             }
             else
             {
-                PauseGame();
-                MainGameUIController.ShowPausePanel();
+                
+                switch (_inputMode)
+                {
+                    case InputMode.Menu:
+                        break;
+                    case InputMode.MainGame:
+                        GameManager.Instance.PauseGame();
+                        GameManager.Instance.MainGameUIController.ShowPausePanel();
+                        break;
+                    case InputMode.TextBox:
+                        break;
+                }
+                
+                //GameManager.Instance.MainGameUIController.ShowPausePanel();
             }
-            */
+            
         }
     }
 
     public void SwitchInputMode(InputMode newMode)
     {
         _inputMode = newMode;
+    }
+    
+    public void SwitchToMainInput()
+    {
+            SwitchInputMode(InputMode.MainGame);
     }
 }
 

@@ -59,6 +59,10 @@ public class MainGameUIController : MonoBehaviour
     [SerializeField] private float _typewriteDelay = 0.2f;
     private int _charIndex;
     private string _desiredText;
+
+    [Header("Shooting References")]
+    [SerializeField] private List<GameObject> _bulletContainer;
+    [SerializeField] private Color _disabledBulletColor;
     
 
     private void Start()
@@ -72,6 +76,7 @@ public class MainGameUIController : MonoBehaviour
     public void ShowHud()
     {
         ActivatePanel(_hud);
+        //GameManager.Instance.InputController.SwitchInputMode(InputMode.MainGame);
     }
     
     public void ShowPausePanel()
@@ -171,6 +176,8 @@ public class MainGameUIController : MonoBehaviour
 
     public void ShowPlantingMenu(List<Item> plantingOptions, PlantSpotController plantSpotController)
     {
+        GameManager.Instance.InputController.SwitchInputMode(InputMode.Menu);
+        
         _plantingOptions = plantingOptions;
         _currentPlantSpotController = plantSpotController;
         ActivatePanel(_plantingPanel);
@@ -200,6 +207,7 @@ public class MainGameUIController : MonoBehaviour
     public void Plant()
     {
         _currentPlantSpotController.PlantSeed(_plantingOptions[_plantingOptionIndex]);
+        GameManager.Instance.InputController.SwitchInputMode(InputMode.MainGame);
     }
 
     #endregion
@@ -209,6 +217,7 @@ public class MainGameUIController : MonoBehaviour
     public void ShowCraftingPanel()
     {
         ActivatePanel(_craftingPanel);
+        GameManager.Instance.InputController.SwitchInputMode(InputMode.Menu);
     }
 
     public void UpdatePanel(Dictionary<ItemType, int> craftingOptions)
@@ -357,6 +366,7 @@ public class MainGameUIController : MonoBehaviour
             }
         }
         
+        GameManager.Instance.InputController.SwitchInputMode(InputMode.MainGame);
         GameManager.Instance.CraftingController.StopCrafting();
         ResetCrafting();
     }
@@ -450,6 +460,39 @@ public class MainGameUIController : MonoBehaviour
         GameManager.Instance.ResumeGame();
     }
 
+
+    #endregion
+
+    #region ShootHandling
+
+    public void UpdateBullets(int currentStack)
+    {
+        foreach (var bullet in _bulletContainer)
+        {
+            bullet.SetActive(false);
+        }
+
+        for (int i = 0; i < currentStack; i++)
+        {
+            _bulletContainer[i].SetActive(true);
+        }
+    }
+
+    public void SetDisableBulletColor()
+    {
+        foreach (var bullet in _bulletContainer)
+        {
+            bullet.GetComponent<Image>().color = _disabledBulletColor;
+        }
+    }
+
+    public void SetDefaultBulletColor()
+    {
+        foreach (var bullet in _bulletContainer)
+        {
+            bullet.GetComponent<Image>().color = Color.white;
+        }
+    }
 
     #endregion
 }

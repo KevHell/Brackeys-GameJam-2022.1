@@ -249,6 +249,7 @@ MonoBehaviour:
   MovementDirection: {x: 0, y: 0, z: 0}
   Go: 0
   _rigidbody2D: {fileID: 4262008398101648114}
+  _destructionDelay: 10
 --- !u!50 &4262008398101648114
 Rigidbody2D:
   serializedVersion: 4
