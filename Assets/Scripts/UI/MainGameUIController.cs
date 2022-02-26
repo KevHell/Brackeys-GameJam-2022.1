@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class MainGameUIController : MonoBehaviour
@@ -58,6 +59,7 @@ public class MainGameUIController : MonoBehaviour
     [SerializeField] private float _typewriteDelay = 0.2f;
     private int _charIndex;
     private string _desiredText;
+    public UnityEvent OnBoxClosed = new UnityEvent();
 
     [Header("Shooting References")]
     [SerializeField] private List<GameObject> _bulletContainer;
@@ -65,8 +67,9 @@ public class MainGameUIController : MonoBehaviour
     
     [Header("GameOver References")]
     [SerializeField] private GameObject _gameOver;
-    
+    [SerializeField] private GameObject _winPanel;
 
+    
     private void Start()
     {
         GameManager.Instance.InputController.SwitchInputMode(InputMode.MainGame);
@@ -504,4 +507,9 @@ public class MainGameUIController : MonoBehaviour
     }
 
     #endregion
+
+    public void ShowWinPanel()
+    {
+        ActivatePanel(_winPanel);
+    }
 }

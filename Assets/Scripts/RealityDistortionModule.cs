@@ -70,13 +70,7 @@ public class RealityDistortionModule : MonoBehaviour
 
     private void Update()
     {
-        // DEBUG ////////////////////////////////
-        if (Input.GetKeyDown(KeyCode.L) && !GameManager.Instance.GamePaused)
-        {
-            StartLoadingOverTime();
-        }
-        /////////////////////////////////////////
-
+        
         if (_scaleUp)
         {
             _scaleTimer += Time.deltaTime;

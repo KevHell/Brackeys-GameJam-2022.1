@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlantSpotController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class PlantSpotController : MonoBehaviour
     [SerializeField] private List<SeedType> _seedTypes;
     private SeedType _seedType;
     private bool _planted;
-    private bool _fullGrown;
+    [FormerlySerializedAs("_fullGrown")] public bool FullGrown;
     private float _timer;
     private int _spriteCounter;
 
@@ -33,7 +34,7 @@ public class PlantSpotController : MonoBehaviour
 
     private void Update()
     {
-        if (_planted && !_fullGrown)
+        if (_planted && !FullGrown)
         {
             _timer += Time.deltaTime;
             if (_timer >= _seedType.GrowthRateInSeconds)
@@ -47,7 +48,8 @@ public class PlantSpotController : MonoBehaviour
                 }
                 else
                 {
-                    _fullGrown = true;
+                    FullGrown = true;
+                    GameManager.Instance.CheckIfAllSpotsPlanted();
                 }
 
                 _timer = 0;

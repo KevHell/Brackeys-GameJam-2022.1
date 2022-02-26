@@ -34,6 +34,7 @@ public class InputController : MonoBehaviour
 
                 #region DEBUG
 
+                /*
                 if (Input.GetKeyDown(KeyCode.L)) return; // Load
 
                 if (Input.GetKeyDown(KeyCode.Space)) PlayerController.Instance.HealthController.DecreaseHealth(1);
@@ -41,7 +42,7 @@ public class InputController : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.T))
                     GameManager.Instance.MainGameUIController.DisplayTextInTextBox(
                         "Seems like everything works just perfectly!");
-
+                */
                 #endregion
 
                 #region Interaction
@@ -110,7 +111,7 @@ public class InputController : MonoBehaviour
             case InputMode.TextBox:
 
                 if (Input.GetKeyDown(KeyCode.E)) GameManager.Instance.MainGameUIController.CloseTextBox();
-                
+                GameManager.Instance.MainGameUIController.OnBoxClosed.Invoke();
                 break;
             
             case InputMode.Menu:

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -26,6 +27,10 @@ public class GameManager : MonoBehaviour
     
     // Public Class References
     public CustomSceneManager CustomSceneManager { get { return _customSceneManager; } }
+    
+    
+    private List<PlantSpotController> _plantSpotControllers;
+    
 
     private void Awake()
     {
@@ -35,6 +40,14 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             if (_dontDestroyOnLoad) DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        if (PlayerController.Instance)
+        {
+            GetAllPlantSpotController();
         }
     }
 
@@ -85,6 +98,34 @@ public class GameManager : MonoBehaviour
         PauseGame();
         MainGameUIController.ShowGameOverPanel();
     }
+    
+    #region Winning Handling
+
+    private void GetAllPlantSpotController()
+    {
+        _plantSpotControllers = FindObjectsOfType<PlantSpotController>().ToList();
+    }
+
+    public void CheckIfAllSpotsPlanted()
+    {
+        bool allPlanted = true;
+        foreach (var spotController in _plantSpotControllers)
+        {
+            if (!spotController.FullGrown)
+            {
+                allPlanted = false;
+                break;
+            }
+        }
+
+        if (allPlanted)
+        {
+            PauseGame();
+            MainGameUIController.ShowWinPanel();
+        }
+    }
+
+    #endregion
 }
 
 
