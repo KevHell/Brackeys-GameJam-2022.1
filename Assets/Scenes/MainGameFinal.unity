@@ -23981,7 +23981,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 4261717818791484552, guid: 17f8edf287d50804e9c67a77217c38ec, type: 3}
   _firePoint: {fileID: 660806383}
-  _stacks: 3
 --- !u!4 &1792131208
 Transform:
   m_ObjectHideFlags: 0
