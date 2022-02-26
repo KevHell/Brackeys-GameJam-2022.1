@@ -9,7 +9,13 @@ public class CustomSceneManager : MonoBehaviour
     
     public void LoadMainMenu()
     {
-        
+        SceneManager.LoadScene(0);
+    }
+
+    public void LoadMainGame()
+    {
+        GameManager.Instance.ResumeGame();
+        SceneManager.LoadScene(1);
     }
 
     public bool MainMenuIsActive()

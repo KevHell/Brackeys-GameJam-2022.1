@@ -26,7 +26,12 @@ public class HealthController : MonoBehaviour
     public void DecreaseHealth(int amount)
     {
         CurrentHealth -= amount;
-        if (CurrentHealth <= 0) OnDeath.Invoke();
         GameManager.Instance.MainGameUIController.UpdateHealth(CurrentHealth);
+
+        if (CurrentHealth <= 0)
+        {
+            GameManager.Instance.GameOver();
+            OnDeath.Invoke();
+        }
     }
 }

@@ -12,8 +12,14 @@ public class MainMenuUIController : MonoBehaviour
     [SerializeField] private GameObject _quitPanel;
     private GameObject _activePanel;
 
+    private void Awake()
+    {
+        
+    }
+
     private void Start()
     {
+        GameManager.Instance.InputController.SwitchInputMode(InputMode.Menu);
         _activePanel = _mainPanel;
     }
 

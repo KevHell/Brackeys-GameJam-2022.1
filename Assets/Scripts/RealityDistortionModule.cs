@@ -278,6 +278,9 @@ public class RealityDistortionModule : MonoBehaviour
         _flickering1 = false;
         _flickering2 = false;
         _flickerTimer = 0;
+        
+        StopCoroutine(nameof(FlickerWorldsAfterRandomSeconds));
+        StopCoroutine(nameof(FlickerWorldsQuicklyAfterRandomSeconds));
     }
 
     public void LoadInstantly(float amount)
@@ -293,6 +296,9 @@ public class RealityDistortionModule : MonoBehaviour
         
         GameManager.Instance.MainGameUIController.
             UpdateRDMEnergy(_currentEnergyRatio, _alertGradient.Evaluate(_currentEnergyRatio));
+        
+        StopCoroutine(nameof(FlickerWorldsAfterRandomSeconds));
+        StopCoroutine(nameof(FlickerWorldsQuicklyAfterRandomSeconds));
     }
 
     #endregion

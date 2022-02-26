@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEditor;
-using UnityEditor.Build.Reporting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -64,9 +63,14 @@ public class MainGameUIController : MonoBehaviour
     [SerializeField] private List<GameObject> _bulletContainer;
     [SerializeField] private Color _disabledBulletColor;
     
+    [Header("GameOver References")]
+    [SerializeField] private GameObject _gameOver;
+    
 
     private void Start()
     {
+        GameManager.Instance.InputController.SwitchInputMode(InputMode.MainGame);
+        
         _activePanel = _hud;
         _lastHealth = PlayerController.Instance.HealthController.CurrentHealth;
     }
@@ -77,6 +81,11 @@ public class MainGameUIController : MonoBehaviour
     {
         ActivatePanel(_hud);
         //GameManager.Instance.InputController.SwitchInputMode(InputMode.MainGame);
+    }
+
+    public void ShowGameOverPanel()
+    {
+        ActivatePanel(_gameOver);
     }
     
     public void ShowPausePanel()
