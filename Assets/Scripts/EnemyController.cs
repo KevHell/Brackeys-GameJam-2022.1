@@ -10,7 +10,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float _shootRate;
     [SerializeField] private Transform _fireTransform;
     [SerializeField] private GameObject _enemyBulletPrefab;
-
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private SpriteRenderer _goodSpriteRenderer;
+    [SerializeField] private Sprite _disabledSprite;
+    [SerializeField] private Sprite _enabledSprite;
+    
     private bool _isShooting;
 
     public void Disable()
@@ -24,7 +28,8 @@ public class EnemyController : MonoBehaviour
 
         // Start Coroutine
         StartCoroutine(ActivateAfterSeconds());
-        Debug.Log("DISABLED");
+        _spriteRenderer.sprite = _disabledSprite;
+        _goodSpriteRenderer.sprite = _disabledSprite;
     }
 
     private IEnumerator ActivateAfterSeconds()
@@ -37,8 +42,8 @@ public class EnemyController : MonoBehaviour
         
         // Activate
         _active = true;
-        
-        Debug.Log("ENABLED!");
+        _spriteRenderer.sprite = _enabledSprite;
+        _goodSpriteRenderer.sprite = _enabledSprite;
     }
 
     public void TryShooting()

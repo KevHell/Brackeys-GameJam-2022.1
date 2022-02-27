@@ -311,6 +311,10 @@ MonoBehaviour:
   _shootRate: 3
   _fireTransform: {fileID: 4336479911384588543}
   _enemyBulletPrefab: {fileID: 8196182412568050158, guid: 048c9da6710f370469933f63a1c3771c, type: 3}
+  _spriteRenderer: {fileID: 4336479910192454847}
+  _goodSpriteRenderer: {fileID: 4336479909886876500}
+  _disabledSprite: {fileID: 21300000, guid: d4ae6c9aa6d29dd469fbae9937196723, type: 3}
+  _enabledSprite: {fileID: 21300000, guid: 3e17e920a46dfdc4eb7555f3da26a62c, type: 3}
 --- !u!61 &4336479911326917211
 BoxCollider2D:
   m_ObjectHideFlags: 0

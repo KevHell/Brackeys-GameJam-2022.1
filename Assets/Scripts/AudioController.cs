@@ -12,9 +12,13 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioSource _badBackgroundMusicSource;
     [SerializeField] private AudioSource _goodBackgroundMusicSource;
     [SerializeField] private List<AudioSource> _effectSources;
+    [SerializeField] private AudioSource _textBoxSource;
+    [SerializeField] private AudioSource _playerWalkSource;
 
     [SerializeField] private AudioMixer _masterMixer;
     private bool _musicMuted;
+
+    public bool WalkSoundPlaying;
 
     private void Start()
     {
@@ -128,4 +132,24 @@ public class AudioController : MonoBehaviour
     }
 
     #endregion
+
+    public void PlayTextBoxSound()
+    {
+        _textBoxSource.mute = false;
+    }
+    public void StopTextBoxSound()
+    {
+        _textBoxSource.mute = true;
+    }
+    
+    public void PlayWalkSound()
+    {
+        _playerWalkSource.mute = false;
+        WalkSoundPlaying = true;
+    }
+    public void StopWalkSound()
+    {
+        _playerWalkSource.mute = true;
+        WalkSoundPlaying = false;
+    }
 }

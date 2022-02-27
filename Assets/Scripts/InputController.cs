@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,12 @@ public class InputController : MonoBehaviour
     private Interactable _interactable;
 
     private InputMode _inputMode;
+    [SerializeField] private AudioClip _failedClip;
+
+    private void Start()
+    {
+        SwitchInputMode(InputMode.Menu);
+    }
 
     void Update()
     {
@@ -57,6 +64,7 @@ public class InputController : MonoBehaviour
                         if (!PlayerController.Instance.ItemBag.SpaceInBag)
                         {
                             GameManager.Instance.MainGameUIController.DisplayTextInTextBox("I'm afraid there's no more space in your bag...");
+                            GameManager.Instance.AudioController.PlaySoundEffect(_failedClip);
                             return;
                         }
                     }

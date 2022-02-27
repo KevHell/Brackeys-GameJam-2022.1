@@ -54,5 +54,16 @@ public class PlayerMovement : MonoBehaviour
         
         _badDroneAnimator.SetInteger("MovementX", (int)horizontalMovement);
         _goodDroneAnimator.SetInteger("MovementX", (int)horizontalMovement);
+
+        if (x != 0 || y != 0)
+        {
+            if (GameManager.Instance.AudioController.WalkSoundPlaying) return;
+            GameManager.Instance.AudioController.PlayWalkSound();
+        }
+        else
+        {
+            if (!GameManager.Instance.AudioController.WalkSoundPlaying) return;
+            GameManager.Instance.AudioController.StopWalkSound();
+        }
     }
 }

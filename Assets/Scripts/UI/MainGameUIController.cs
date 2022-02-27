@@ -447,6 +447,7 @@ public class MainGameUIController : MonoBehaviour
         _charIndex = 0;
 
         StartCoroutine(nameof(TypewriteText));
+        GameManager.Instance.AudioController.PlayTextBoxSound();
     }
     
     private IEnumerator TypewriteText()
@@ -462,6 +463,7 @@ public class MainGameUIController : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.AudioController.StopTextBoxSound();
             yield return new WaitForSecondsRealtime(.5f);
             _okBox.SetActive(true);
         }
@@ -472,6 +474,7 @@ public class MainGameUIController : MonoBehaviour
         _textBoxObject.SetActive(false);
         GameManager.Instance.InputController.SwitchInputMode(InputMode.MainGame);
         GameManager.Instance.ResumeGame();
+        GameManager.Instance.AudioController.StopTextBoxSound();
     }
 
 

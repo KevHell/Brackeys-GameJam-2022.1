@@ -11,10 +11,13 @@ public class Bullet : MonoBehaviour
     [HideInInspector] public bool Go;
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private float _destructionDelay = 10;
+
+    [SerializeField] private AudioClip _shootClip;
     void Start()
     {
         _rigidbody2D.AddForce(transform.up * _speed, ForceMode2D.Impulse);
         StartCoroutine(nameof(DestroyAfterSeconds));
+        GameManager.Instance.AudioController.PlaySoundEffect(_shootClip);
     }
 
     private IEnumerator DestroyAfterSeconds()
@@ -33,7 +36,9 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.GetComponent<EnemyController>()) HandleEnemyCollision(col);
+        
         if (LayerMask.LayerToName(col.gameObject.layer) == "Player") HandlePlayerCollision();
+        if (LayerMask.LayerToName(col.gameObject.layer) == "PlayerBullet") HandlePlayerCollision();
         
         // Destroy self
         DestroySelf();

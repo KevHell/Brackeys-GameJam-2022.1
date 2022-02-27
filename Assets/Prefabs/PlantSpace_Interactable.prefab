@@ -247,6 +247,7 @@ MonoBehaviour:
   OnPlanted:
     m_PersistentCalls:
       m_Calls: []
+  _failedClip: {fileID: 8300000, guid: 066582506ce0e0e49a1bd033d66aef3c, type: 3}
 --- !u!1001 &5928265388365533209
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
 
     public bool Tutorial = true;
+    [SerializeField] private AudioClip _gameOverClip;
     
     private void Awake()
     {
@@ -100,6 +101,7 @@ public class GameManager : MonoBehaviour
     {
         PauseGame();
         MainGameUIController.ShowGameOverPanel();
+        AudioController.PlaySoundEffect(_gameOverClip);
     }
     
     #region Winning Handling

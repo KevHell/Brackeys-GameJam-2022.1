@@ -16,6 +16,7 @@ public class TutorialController : MonoBehaviour
 
     [SerializeField] private Item _tutorialItem;
     [SerializeField] private PlantSpotController _tutorialPlantSpot;
+    [SerializeField] private AudioClip _stepCompleteClip;
 
     private void Start()
     {
@@ -53,6 +54,7 @@ public class TutorialController : MonoBehaviour
 
     private void ExplainCollect()
     {
+        PlayCompletionSound();
         GameManager.Instance.RealityDistortionModule.OnActivation.RemoveListener(ExplainCollect);
         if (!GameManager.Instance.Tutorial) return;
         
@@ -62,6 +64,7 @@ public class TutorialController : MonoBehaviour
 
     private void ExplainCraft()
     {
+        PlayCompletionSound();
         _tutorialItem.OnCollect.RemoveListener(ExplainCraft);
         if (!GameManager.Instance.Tutorial) return;
         
@@ -71,6 +74,7 @@ public class TutorialController : MonoBehaviour
 
     private void ExplainPlanting()
     {
+        PlayCompletionSound();
         GameManager.Instance.CraftingController.OnCrafted.RemoveListener(ExplainPlanting);
         if (!GameManager.Instance.Tutorial) return;
         
@@ -82,6 +86,7 @@ public class TutorialController : MonoBehaviour
 
     private void ExplainShooting()
     {
+        PlayCompletionSound();
         _tutorialPlantSpot.OnPlanted.RemoveListener(ExplainShooting);
         if (!GameManager.Instance.Tutorial) return;
         
@@ -93,6 +98,7 @@ public class TutorialController : MonoBehaviour
 
     private void EndTutorial()
     {
+        PlayCompletionSound();
         PlayerController.Instance.StunGun.OnShot.RemoveListener(EndTutorial);
         GameManager.Instance.MainGameUIController.DisplayTextInTextBox(_endText);
     }
@@ -101,5 +107,10 @@ public class TutorialController : MonoBehaviour
     {
         GameManager.Instance.RealityDistortionModule.OnAlert.RemoveListener(ExplainRDMLoad);
         GameManager.Instance.MainGameUIController.DisplayTextInTextBox(_loadText);
+    }
+
+    private void PlayCompletionSound()
+    {
+        GameManager.Instance.AudioController.PlaySoundEffect(_stepCompleteClip);
     }
 }

@@ -18,6 +18,8 @@ public class Collectable : MonoBehaviour
     [SerializeField] private GameObject _goodGraphicsObject;
     [SerializeField] private GameObject _collisionObject;
     [SerializeField] private Collider2D _collider2D;
+
+    [SerializeField] private AudioClip _pickUpClip;
     
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -48,6 +50,8 @@ public class Collectable : MonoBehaviour
         transform.position = new Vector3(rdmX, rdmY, 0);
 
         StartCoroutine(nameof(ShowAfterSeconds));
+        
+        GameManager.Instance.AudioController.PlaySoundEffect(_pickUpClip);
     }
 
     private IEnumerator ShowAfterSeconds()

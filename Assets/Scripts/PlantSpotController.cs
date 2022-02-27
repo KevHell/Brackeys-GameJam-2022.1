@@ -19,6 +19,7 @@ public class PlantSpotController : MonoBehaviour
     private int _spriteCounter;
 
     public UnityEvent OnPlanted = new UnityEvent();
+    [SerializeField] private AudioClip _failedClip;
 
     public void StartPlanting()
     {
@@ -32,6 +33,7 @@ public class PlantSpotController : MonoBehaviour
         else
         {
             GameManager.Instance.MainGameUIController.DisplayTextInTextBox("Seems like you don't have any seeds to plant...");
+            GameManager.Instance.AudioController.PlaySoundEffect(_failedClip);
         }
     }
 

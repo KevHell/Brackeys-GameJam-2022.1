@@ -250,6 +250,7 @@ MonoBehaviour:
   Go: 0
   _rigidbody2D: {fileID: 4262008398101648114}
   _destructionDelay: 10
+  _shootClip: {fileID: 8300000, guid: 7ed1c46c799f79e4181299a4bfd21354, type: 3}
 --- !u!50 &4262008398101648114
 Rigidbody2D:
   serializedVersion: 4

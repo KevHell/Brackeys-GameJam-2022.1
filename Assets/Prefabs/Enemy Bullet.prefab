@@ -133,6 +133,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5849770604810135918, guid: 17f8edf287d50804e9c67a77217c38ec, type: 3}
+      propertyPath: _shootClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0a481945bb2453e41b65605dbf0a04aa, type: 3}
     - target: {fileID: 6831161353184031551, guid: 17f8edf287d50804e9c67a77217c38ec, type: 3}
       propertyPath: m_Sprite
       value: 

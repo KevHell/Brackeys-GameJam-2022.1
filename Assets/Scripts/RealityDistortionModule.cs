@@ -53,7 +53,8 @@ public class RealityDistortionModule : MonoBehaviour
 
     public UnityEvent OnActivation = new UnityEvent();
     public UnityEvent OnAlert = new UnityEvent();
-    
+
+    [SerializeField] private AudioClip _loadingClip;
 
     private void Start()
     {
@@ -282,6 +283,8 @@ public class RealityDistortionModule : MonoBehaviour
         
         StopCoroutine(nameof(FlickerWorldsAfterRandomSeconds));
         StopCoroutine(nameof(FlickerWorldsQuicklyAfterRandomSeconds));
+        
+        GameManager.Instance.AudioController.PlaySoundEffect(_loadingClip);
     }
 
     public void LoadInstantly(float amount)
@@ -300,6 +303,8 @@ public class RealityDistortionModule : MonoBehaviour
         
         StopCoroutine(nameof(FlickerWorldsAfterRandomSeconds));
         StopCoroutine(nameof(FlickerWorldsQuicklyAfterRandomSeconds));
+        
+        GameManager.Instance.AudioController.PlaySoundEffect(_loadingClip);
     }
 
     #endregion

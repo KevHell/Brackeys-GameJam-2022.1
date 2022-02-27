@@ -8,6 +8,7 @@ public class ItemBag : MonoBehaviour
     public List<Item> Items = new List<Item>();
     [SerializeField] private int _itemSlots = 5;
     public bool SpaceInBag = true;
+    [SerializeField] private AudioClip _pickUpClip;
 
     private Dictionary<ItemType, int> _itemsCounts = new Dictionary<ItemType, int>();
 
@@ -37,6 +38,7 @@ public class ItemBag : MonoBehaviour
             }
             
             Debug.Log("Success");
+            GameManager.Instance.AudioController.PlaySoundEffect(_pickUpClip);
         }
         else
         {

@@ -295,6 +295,7 @@ MonoBehaviour:
   _goodGraphicsObject: {fileID: 41704364722931901}
   _collisionObject: {fileID: 41704365524351456}
   _collider2D: {fileID: 41704365470679349}
+  _pickUpClip: {fileID: 8300000, guid: 3e3ee990a4ea8a44fa1ab8474475e2de, type: 3}
 --- !u!58 &41704365470679349
 CircleCollider2D:
   m_ObjectHideFlags: 0
