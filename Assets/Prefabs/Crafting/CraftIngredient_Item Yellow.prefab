@@ -9,12 +9,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 655495147722761049, guid: f2977a865c4f18547a701a6041dfb03c, type: 3}
       propertyPath: Type
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 655495147722761049, guid: f2977a865c4f18547a701a6041dfb03c, type: 3}
       propertyPath: UISprite
       value: 
-      objectReference: {fileID: 21300000, guid: c14aa4f571e0a974dba94111d48930b3, type: 3}
+      objectReference: {fileID: 21300000, guid: 83863b1d557a26543bbfb0b497e81d60, type: 3}
     - target: {fileID: 3760828437459946768, guid: f2977a865c4f18547a701a6041dfb03c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.8
@@ -26,7 +26,7 @@ PrefabInstance:
     - target: {fileID: 5036574738224196252, guid: f2977a865c4f18547a701a6041dfb03c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 57ca02fa7b37e5e44bd56affa215224b, type: 3}
+      objectReference: {fileID: 21300000, guid: 99f616f10fb1d294c8f1c7315270f557, type: 3}
     - target: {fileID: 5036574739565172716, guid: f2977a865c4f18547a701a6041dfb03c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.34
@@ -37,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 271665baa638097408d298f64c2ce567, type: 3}
     - target: {fileID: 5036574739642095795, guid: f2977a865c4f18547a701a6041dfb03c, type: 3}
       propertyPath: m_Name
-      value: CraftIngredient_Item Yellow
+      value: CraftIngredient_Item Blue
       objectReference: {fileID: 0}
     - target: {fileID: 5036574739642095796, guid: f2977a865c4f18547a701a6041dfb03c, type: 3}
       propertyPath: m_RootOrder
