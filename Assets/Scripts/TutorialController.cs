@@ -19,11 +19,13 @@ public class TutorialController : MonoBehaviour
 
     private void Start()
     {
-        if (GameManager.Instance.Tutorial)
-        {
-            StartCoroutine(nameof(GreetAfterSeconds));
-            GameManager.Instance.RealityDistortionModule.OnAlert.AddListener(ExplainRDMLoad);
-        }
+        
+    }
+
+    public void StartTutorial()
+    {
+        StartCoroutine(nameof(GreetAfterSeconds));
+        GameManager.Instance.RealityDistortionModule.OnAlert.AddListener(ExplainRDMLoad);
     }
 
     private IEnumerator GreetAfterSeconds()
