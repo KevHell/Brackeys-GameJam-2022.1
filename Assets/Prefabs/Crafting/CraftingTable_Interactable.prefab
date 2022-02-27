@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3808903528854708410, guid: 1afd034b6c658124f8f09fb053cf9a54, type: 3}
       propertyPath: m_Name
-      value: Interactable_ChangeableObject
+      value: CraftingTable_Interactable
       objectReference: {fileID: 0}
     - target: {fileID: 3808903528854708413, guid: 1afd034b6c658124f8f09fb053cf9a54, type: 3}
       propertyPath: m_RootOrder
@@ -54,6 +54,18 @@ PrefabInstance:
     - target: {fileID: 3808903528854708413, guid: 1afd034b6c658124f8f09fb053cf9a54, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976290772467037465, guid: 1afd034b6c658124f8f09fb053cf9a54, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976290772467037465, guid: 1afd034b6c658124f8f09fb053cf9a54, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976290772467037465, guid: 1afd034b6c658124f8f09fb053cf9a54, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.38
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1afd034b6c658124f8f09fb053cf9a54, type: 3}

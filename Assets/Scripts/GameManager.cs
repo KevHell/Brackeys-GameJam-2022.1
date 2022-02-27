@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public WorldChangeManager WorldChangeManager;
     public CraftingController CraftingController;
     public InputController InputController;
+    public TutorialController TutorialController;
     
     // Public Class References
     public CustomSceneManager CustomSceneManager { get { return _customSceneManager; } }

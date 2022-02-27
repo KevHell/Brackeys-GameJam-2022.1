@@ -514,4 +514,19 @@ public class MainGameUIController : MonoBehaviour
     {
         ActivatePanel(_winPanel);
     }
+
+    public void ActivateTutorial()
+    {
+        GameManager.Instance.Tutorial = true;
+        GameManager.Instance.TutorialController.StartTutorial();
+        CloseActivePanel();
+        ShowHud();
+    }
+
+    public void DeactivateTutorial()
+    {
+        GameManager.Instance.Tutorial = false;
+        CloseActivePanel();
+        ShowHud();
+    }
 }

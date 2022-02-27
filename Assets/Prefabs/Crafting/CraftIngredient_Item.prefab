@@ -15,6 +15,14 @@ PrefabInstance:
       propertyPath: _destroySelf
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4407314108740390030, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407314108740390030, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.008
+      objectReference: {fileID: 0}
     - target: {fileID: 4485814177789232065, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
       propertyPath: InteractDuration
       value: 3
@@ -73,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075333870347821369, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}
       propertyPath: m_Radius
-      value: 0.6
+      value: 1.11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3378199343293c4d8fa3b42be0001cc, type: 3}

@@ -15,6 +15,26 @@ PrefabInstance:
       propertyPath: UISprite
       value: 
       objectReference: {fileID: 21300000, guid: f8d2722e9c78fb34c87fcf611dbcd702, type: 3}
+    - target: {fileID: 3760828437459946768, guid: f2977a865c4f18547a701a6041dfb03c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036574738224196251, guid: f2977a865c4f18547a701a6041dfb03c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036574738224196252, guid: f2977a865c4f18547a701a6041dfb03c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 53da1d7607a888749886e10bc7d0bd16, type: 3}
+    - target: {fileID: 5036574739565172716, guid: f2977a865c4f18547a701a6041dfb03c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036574739565172717, guid: f2977a865c4f18547a701a6041dfb03c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 271665baa638097408d298f64c2ce567, type: 3}
     - target: {fileID: 5036574739642095795, guid: f2977a865c4f18547a701a6041dfb03c, type: 3}
       propertyPath: m_Name
       value: CraftIngredient_Item Red
