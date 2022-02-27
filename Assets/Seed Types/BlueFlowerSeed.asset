@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemType: 3
   GrowSprites:
-  - {fileID: 21300000, guid: 613984e107c3dfb4ca4e711270d9959f, type: 3}
+  - {fileID: 21300000, guid: a37306e44b4d6a0408ce628469688bc9, type: 3}
   - {fileID: 21300000, guid: 99f616f10fb1d294c8f1c7315270f557, type: 3}
   GrowthRateInSeconds: 3
