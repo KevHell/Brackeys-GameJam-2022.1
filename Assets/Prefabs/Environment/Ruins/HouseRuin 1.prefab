@@ -25,12 +25,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -2.823835, y: 2.8271394}
-      - {x: -4.942838, y: 0.58815616}
-      - {x: -5.1576605, y: 0.37933803}
+    - - {x: 1.3566151, y: -1.3318168}
+      - {x: -3.6209993, y: 0.9750356}
+      - {x: -4.7600346, y: 0.19664478}
       - {x: 2.0623894, y: -3.044075}
-      - {x: 5.55532, y: -0.09355533}
-      - {x: 2.6604192, y: 2.0055516}
+      - {x: 5.7974524, y: -0.71618235}
+      - {x: 4.465858, y: 0.12488699}
 --- !u!1001 &8292972983265413000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,6 +113,14 @@ PrefabInstance:
     - target: {fileID: 6628842263406640812, guid: 07425fab865cbeb4f83861c505d70db3, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628842263406640813, guid: 07425fab865cbeb4f83861c505d70db3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628842263406640813, guid: 07425fab865cbeb4f83861c505d70db3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.39
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5344732974922358623, guid: 07425fab865cbeb4f83861c505d70db3, type: 3}
