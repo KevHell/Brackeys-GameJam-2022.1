@@ -14,7 +14,7 @@ PrefabInstance:
     - target: {fileID: 655495147722761049, guid: f2977a865c4f18547a701a6041dfb03c, type: 3}
       propertyPath: UISprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9012bc64fc4299f40a4dcb3240de30a4, type: 3}
+      objectReference: {fileID: 21300000, guid: f8d2722e9c78fb34c87fcf611dbcd702, type: 3}
     - target: {fileID: 5036574739642095795, guid: f2977a865c4f18547a701a6041dfb03c, type: 3}
       propertyPath: m_Name
       value: CraftIngredient_Item Red

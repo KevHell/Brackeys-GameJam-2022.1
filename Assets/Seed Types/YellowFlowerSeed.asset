@@ -15,7 +15,5 @@ MonoBehaviour:
   ItemType: 5
   GrowSprites:
   - {fileID: 21300000, guid: 613984e107c3dfb4ca4e711270d9959f, type: 3}
-  - {fileID: 21300000, guid: 6d6a6f8e03abcfa4b8cbd35be87552e4, type: 3}
-  - {fileID: 21300000, guid: 69074ce9cbe42a14bb170ec1e806a538, type: 3}
-  - {fileID: 21300000, guid: c0ece28b98fba094ebe1543f18eaa037, type: 3}
+  - {fileID: 21300000, guid: 57ca02fa7b37e5e44bd56affa215224b, type: 3}
   GrowthRateInSeconds: 3

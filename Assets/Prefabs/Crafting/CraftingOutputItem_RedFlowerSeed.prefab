@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3091936702864707075, guid: 1a02a7325a933b34991955dc982074df, type: 3}
       propertyPath: m_Name
-      value: CraftingOutputItem
+      value: CraftingOutputItem_RedFlowerSeed
       objectReference: {fileID: 0}
     - target: {fileID: 7229339677397724410, guid: 1a02a7325a933b34991955dc982074df, type: 3}
       propertyPath: m_RootOrder
@@ -55,5 +55,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7675801958381474525, guid: 1a02a7325a933b34991955dc982074df, type: 3}
+      propertyPath: UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c58081e8bfb9df4a987b95a099ce780, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a02a7325a933b34991955dc982074df, type: 3}
